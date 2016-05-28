@@ -1,0 +1,10 @@
+{
+  "get /": {
+    "controller": "main",
+    "action": "index"
+  },
+  "get /admin": {
+    "controller": "main",
+    "action": "index"
+  }
+}
