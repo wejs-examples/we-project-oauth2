@@ -20,7 +20,6 @@
     "we-core": "1.4.2",
     "we-plugin-acl": "^1.0.0",
     "we-plugin-auth": "^1.0.0",
-    "we-plugin-passport-oauth2": "^1.0.0",
     "we-plugin-user": "^1.0.0"
   },
   "devDependencies": {

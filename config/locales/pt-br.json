@@ -1,2 +1,5 @@
 {
+	"auth.change-password.reset-password": "auth.change-password.reset-password",
+	"auth.change-password.success": "auth.change-password.success",
+	"auth.reset-password.success.can": "auth.reset-password.success.can"
 }
