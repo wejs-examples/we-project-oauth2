@@ -20,6 +20,7 @@ describe('authFeature', function () {
     we.email.showDebugEmail = function() {};
 
     var userStub = stubs.userStub();
+    userStub.language = 'en-us';
     helpers.createUser(userStub, function(err, user) {
       if (err) throw err;
 
@@ -100,11 +101,14 @@ describe('authFeature', function () {
         // use setTime out to skip supertest error
         // see: https://github.com/visionmedia/superagent/commit/04a04e22a4126bd64adf85b1f41f2962352203d1
         setTimeout(function() {
-
           agent.get('/account')
           .set('Accept', 'application/json')
           .expect(200)
           .end(function (err, res) {
+            if (err) {
+              console.log(res.text);
+              return done(err);
+            }
 
             assert(res.body.user.id);
             assert.equal(res.body.user.displayName, userStub.displayName);
@@ -164,7 +168,7 @@ describe('authFeature', function () {
           assert(res.body.messages);
 
           assert.equal(
-            'auth.confirmPassword.and.newPassword.diferent',
+            we.i18n.__('auth.confirmPassword.and.newPassword.diferent'),
             res.body.messages[0].message
           );
 
@@ -197,11 +201,11 @@ describe('authFeature', function () {
 
           assert(res.body.messages);
           assert.equal(
-            'auth.email.and.confirmEmail.diferent',
+            we.i18n.__('auth.email.and.confirmEmail.diferent'),
             res.body.messages[0].message
           );
           assert.equal(
-            'Validation isEmail failed',
+            we.i18n.__('Validation isEmail failed'),
             res.body.messages[1].message
           );
           we.log.warn.restore();
@@ -233,7 +237,7 @@ describe('authFeature', function () {
           assert(res.body.messages);
 
           assert.equal(
-            'auth.register.acceptTerms.required',
+            we.i18n.__('auth.register.acceptTerms.required'),
             res.body.messages[0].message
           );
 
@@ -326,7 +330,7 @@ describe('authFeature', function () {
 
         assert(res.body.messages)
         assert.equal(res.body.messages[0].status, 'warning');
-        assert.equal(res.body.messages[0].message, 'auth.login.user.incorrect.password.or.email');
+        assert.equal(res.body.messages[0].message, we.i18n.__('auth.login.user.incorrect.password.or.email'));
 
         // todo add a static login form
         done();
@@ -615,12 +619,6 @@ describe('authFeature', function () {
     it('post /auth/change-password should return error with wrong password');
   });
 
-  describe('generateAuthToken', function () {
-    it('post /auth/auth-token should return one auth token for authorized users');
-    it('post /auth/auth-token should return forbidden for non authorized users');
-  });
-
-
   describe('checkIfCanResetPassword', function() {
 
     it('get /api/v1/auth/check-if-can-reset-password should return true to one user how can reset the password');
@@ -658,7 +656,7 @@ describe('authFeature', function () {
             .end(function (err, res) {
               if(err) throw err;
 
-              assert.equal(res.body.messages[0].message, 'auth.reset-password.success.can');
+              assert.equal(res.body.messages[0].message, we.i18n.__('auth.reset-password.success.can'));
 
               done();
 

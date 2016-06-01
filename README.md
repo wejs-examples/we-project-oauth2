@@ -1,11 +1,14 @@
-# We.js accounts project
+# We.js oauth2 project
 
-Project with oauth2, users and roles
+Project with oauth2, users, roles and ACL
+
+> Looking for testers and feedback. Have time, please help!
 
 **Build With:**
 
 - We.js
 - oauth20-provider
+- we-plugin-passport-oauth2
 
 ## How to install
 
@@ -26,6 +29,12 @@ we go
 See http://wejs.org for we.js documentation
 
 ## Routes
+
+Use **we routes** command
+
+```sh
+we routes
+```
 
 ## Test
 

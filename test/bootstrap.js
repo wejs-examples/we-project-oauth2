@@ -22,7 +22,15 @@ before(function(callback) {
         updateFiles: true,
         locales: ['en-us']
       },
-      themes: {}
+      themes: {},
+
+      hostname: null,
+      oauth2: {
+        redirectToLoginUrl: '/login'
+      },
+      session: {
+        cookie: { domain: null }
+      }
     }, function (err, we) {
       if (err) return console.error(err);
       we.startServer(function (err) {
