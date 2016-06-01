@@ -21,6 +21,7 @@
     "we-plugin-acl": "^1.0.0",
     "we-plugin-auth": "^1.0.1",
     "we-plugin-bootstrap3": "^0.3.2",
+    "we-plugin-editor-summernote": "^1.0.1",
     "we-plugin-form": "^1.0.1",
     "we-plugin-menu": "^1.2.1",
     "we-plugin-passport-oauth2": "^1.1.0",
