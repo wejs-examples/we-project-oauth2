@@ -2,6 +2,8 @@
 
 Project with oauth2, users, roles and ACL
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Oauth_logo.svg/2000px-Oauth_logo.svg.png" width="200px">
+
 > Looking for testers and feedback. Have time, please help!
 
 **Build With:**
